@@ -5,8 +5,8 @@ import asyncio
 
 app = FastAPI()
 
-@app.get("/refreships")
-async def test():
+@app.get("/refreshdatabase")
+async def refresh_database():
   try:
     await database_manager.download_database()
   except Exception as e:
