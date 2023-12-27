@@ -3,6 +3,7 @@ import aiohttp
 import asyncio
 import zipfile
 import os
+import shutil
 import IP2Location
 
 database = None
@@ -60,5 +61,5 @@ async def unzip_file(zip_file_path, extract_folder):
 async def move_file(source_path, destination_path):
     if os.path.isfile(destination_path):
         await asyncio.to_thread(os.remove, destination_path)
-    await asyncio.to_thread(os.rename, source_path, destination_path)
+    await asyncio.to_thread(shutil.move, source_path, destination_path)
     print(f"Moved {source_path} to {destination_path}")
