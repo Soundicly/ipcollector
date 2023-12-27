@@ -14,6 +14,7 @@ async def get_database():
       database = IP2Location.IP2Location(os.path.join("data", "IP2LOCATION-LITE-DB11.IPV6.BIN"))
     except ValueError as e:
       print("Database doesn't exist. Downloading...")
+      await download_database()
       database = IP2Location.IP2Location(os.path.join("data", "IP2LOCATION-LITE-DB11.IPV6.BIN"))
   return database
 
