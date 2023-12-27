@@ -21,7 +21,7 @@ async def ip(request: Request):
 
   # If your FastAPI application is behind a proxy server,
   # you can get the proxy's IP address from the headers
-  proxy_ip = request.headers.get("X-Forwarded-For")
+  proxy_ip = request.headers.get("X-Forwarded-For").split(",")[0] if request.headers.get("X-Forwarded-For") else None
 
   ip = proxy_ip if proxy_ip else client_ip
   ip_data = await ips.get_ip_info(ip)
