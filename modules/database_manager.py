@@ -33,8 +33,6 @@ async def download_database():
 
 def get_download_url():
   token = os.getenv("IP2LOCATION_DOWNLOAD_TOKEN")
-  if token is None:
-    token = "OAnXRC8WCJpThNkJuJL9AY9I1aN4xeb5fAMAtoheRJ07hO63aDnEpbCnTjDLYvjG"
   file = "DB11LITEBINIPV6"
   return f"https://www.ip2location.com/download/?token={token}&file={file}"
 
