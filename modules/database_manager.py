@@ -31,7 +31,7 @@ async def download_database():
   await download_zip_file(get_download_url(), zip_destination)
   await unzip_file(zip_destination, extraction_folder)
   await move_file(extracted_file, final_destination)
-  await asyncio.to_thread(os.removedirs, extraction_folder)
+  await asyncio.to_thread(shutil.rmtree, extraction_folder)
 
 def get_download_url():
   token = os.getenv("IP2LOCATION_DOWNLOAD_TOKEN")
